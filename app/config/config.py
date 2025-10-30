@@ -1,4 +1,4 @@
-from pydantic_setting import BaseSettings
+from pydantic_settings import BaseSettings
 from typing import List, Optional
 from decouple import config
 

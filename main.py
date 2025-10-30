@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from app.routes.google_oauth import router as google_oauth_router
+from app.routes.ecg import router as ecg_router
+from app.routes.decision_analysis import router as decision_router
 from app.config.config import settings
 
 app = FastAPI()
@@ -19,6 +21,8 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(google_oauth_router, prefix="/auth/google", tags=["authentication"])
+app.include_router(ecg_router, prefix="/api/v1", tags=["ECG"])
+app.include_router(decision_router, prefix="/api/v1", tags=["Decision Analysis"])
 
 
 @app.get("/")
