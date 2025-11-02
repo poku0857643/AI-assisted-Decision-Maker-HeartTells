@@ -7,3 +7,16 @@ google-auth-oauthlib
 google-auth-httplib2
 python-jose[cryptography]
 python-multipart
+sqlalchemy
+psycopg2-binary
+alembic
+numpy
+scipy
+scikit-learn
+tensorflow
+openai
+pandas
+matplotlib
+seaborn
+neurokit2
+heartpy
