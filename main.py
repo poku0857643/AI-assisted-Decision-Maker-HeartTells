@@ -5,6 +5,7 @@ from fastapi.responses import FileResponse
 from app.routes.google_oauth import router as google_oauth_router
 from app.routes.ecg import router as ecg_router
 from app.routes.decision_analysis import router as decision_router
+from app.routes.chat import router as chat_router
 from app.config.config import settings
 
 app = FastAPI()
@@ -23,6 +24,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(google_oauth_router, prefix="/auth/google", tags=["authentication"])
 app.include_router(ecg_router, prefix="/api/v1", tags=["ECG"])
 app.include_router(decision_router, prefix="/api/v1", tags=["Decision Analysis"])
+app.include_router(chat_router, prefix="/api/v1", tags=["Chat"])
 
 
 @app.get("/")
@@ -32,6 +34,10 @@ async def root():
 @app.get("/login")
 async def login_page():
     return FileResponse("templates/login.html")
+
+@app.get("/chat")
+async def chat_page():
+    return FileResponse("templates/chat.html")
 
 @app.get("/dashboard")
 async def dashboard_page():

@@ -32,6 +32,7 @@ class Settings(BaseSettings):
 
     # ChatGPT API
     CHATGPT_API_KEY: str = config("CHATGPT_API_KEY", default="")
+    CHAT_MODEL: str = config("CHAT_MODEL", default="gpt-4o-mini")
 
     # Google OAuth
     GOOGLE_CLIENT_ID: str = config("GOOGLE_CLIENT_ID", default="")
